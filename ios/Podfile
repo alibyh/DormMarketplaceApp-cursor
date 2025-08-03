@@ -1,95 +1,70 @@
-# ──────────  ios/Podfile  (drop-in complete file) ──────────
-source 'https://cdn.cocoapods.org'   # default spec repo only
+# ios/Podfile  – stub header only, no Xcodeproj calls
+source 'https://cdn.cocoapods.org'
 
 require File.join(File.dirname(`node --print "require.resolve('expo/package.json')"`), "scripts/autolinking")
 require File.join(File.dirname(`node --print "require.resolve('react-native/package.json')"`), "scripts/react_native_pods")
 require 'json'
-podfile_properties = JSON.parse(File.read(File.join(__dir__, 'Podfile.properties.json'))) rescue {}
+props = JSON.parse(File.read(File.join(__dir__, 'Podfile.properties.json'))) rescue {}
 
-ENV['RCT_NEW_ARCH_ENABLED']            = '0' if podfile_properties['newArchEnabled'] == 'false'
-ENV['EX_DEV_CLIENT_NETWORK_INSPECTOR'] = podfile_properties['EX_DEV_CLIENT_NETWORK_INSPECTOR']
+ENV['RCT_NEW_ARCH_ENABLED']            = '0' if props['newArchEnabled'] == 'false'
+ENV['EX_DEV_CLIENT_NETWORK_INSPECTOR'] = props['EX_DEV_CLIENT_NETWORK_INSPECTOR']
 
-platform :ios, podfile_properties['ios.deploymentTarget'] || '15.1'
+platform :ios, props['ios.deploymentTarget'] || '15.1'
 install! 'cocoapods', :deterministic_uuids => false
 prepare_react_native_project!
 
 target 'DormMarketplaceApp' do
   use_expo_modules!
 
-  pod 'YandexMobileAds', '7.13.0'   # pulls AppMetricaCore 5.11.2
+  pod 'YandexMobileAds', '7.13.0'        # pulls AppMetricaCore 5.11.2
 
-  # ───── Expo autolinking helpers (unchanged) ─────
-  config_cmd =
-    if ENV['EXPO_USE_COMMUNITY_AUTOLINKING'] == '1'
-      ['node', '-e', "process.argv=['', '', 'config'];require('@react-native-community/cli').run()"]
-    else
-      ['npx', 'expo-modules-autolinking', 'react-native-config', '--json', '--platform', 'ios']
-    end
-  config = use_native_modules!(config_cmd)
+  # ───── Expo autolinking ─────
+  cmd = if ENV['EXPO_USE_COMMUNITY_AUTOLINKING'] == '1'
+          ['node','-e',"process.argv=['','','config'];require('@react-native-community/cli').run()"]
+        else
+          ['npx','expo-modules-autolinking','react-native-config','--json','--platform','ios']
+        end
+  cfg = use_native_modules!(cmd)
 
-  link_mode = (podfile_properties['ios.useFrameworks'] || ENV['USE_FRAMEWORKS'])&.to_sym || :static
-  use_frameworks! :linkage => link_mode
-
+  # static pods (Hermes links)
   use_react_native!(
-    :path => config[:reactNativePath],
-    :hermes_enabled => (podfile_properties['expo.jsEngine'].nil? || podfile_properties['expo.jsEngine'] == 'hermes'),
-    :app_path => "#{Pod::Config.instance.installation_root}/..",
-    :privacy_file_aggregation_enabled => podfile_properties['apple.privacyManifestAggregationEnabled'] != 'false'
+    :path        => cfg[:reactNativePath],
+    :hermes_enabled => (props['expo.jsEngine'].nil? || props['expo.jsEngine']=='hermes'),
+    :app_path    => "#{Pod::Config.instance.installation_root}/..",
   )
 
-  # ───── Post-install: Expo tweaks + AppMetrica stub ─────
   post_install do |installer|
-    react_native_post_install(
-      installer,
-      config[:reactNativePath],
-      :mac_catalyst_enabled => false,
-      :ccache_enabled       => podfile_properties['apple.ccacheEnabled'] == 'true'
-    )
+    react_native_post_install(installer, cfg[:reactNativePath])
 
-    # disable resource-bundle code-sign (Expo template)
+    # Disable codesign on resource bundles (Expo template)
     installer.target_installation_results.pod_target_installation_results
       .each_value do |res|
-      res.resource_bundle_targets.each do |bundle_t|
-        bundle_t.build_configurations.each { |cfg| cfg.build_settings['CODE_SIGNING_ALLOWED'] = 'NO' }
+      res.resource_bundle_targets.each do |b|
+        b.build_configurations.each { |c| c.build_settings['CODE_SIGNING_ALLOWED']='NO' }
       end
     end
 
-    # ----------  Inject missing AMALibraryMigration320  ----------
-    require 'fileutils'
-    apm_target = installer.pods_project.targets.find { |t| t.name == 'AppMetricaCore' }
-    next unless apm_target
-
-    stub_dir = File.join(installer.sandbox.root, 'AppMetricaCore', 'StubMigration')
-    FileUtils.mkdir_p(stub_dir)
-
-    header_path = File.join(stub_dir, 'AMALibraryMigration320.h')
-    impl_path   = File.join(stub_dir, 'AMALibraryMigration320.m')
-
-    File.write(header_path, <<~HDR) unless File.exist?(header_path)
-// Auto-generated stub — satisfies AppMetricaCore 5.11.x
-#import <Foundation/Foundation.h>
-@interface AMALibraryMigration320 : NSObject
-@end
-HDR
-
-    File.write(impl_path, <<~SRC) unless File.exist?(impl_path)
-#import "AMALibraryMigration320.h"
-@implementation AMALibraryMigration320
-@end
-SRC
-
-    # helper to add .m to the target once
-    def add_file_to_target(project, target, path)
-      file_ref = project.main_group.new_file(path)
-      target.source_build_phase.add_file_reference(file_ref) unless
-        target.source_build_phase.files_references.include?(file_ref)
+    # Weak-link private framework SwiftUICore (Xcode 16)
+    installer.pods_project.targets.each do |t|
+      t.build_configurations.each do |c|
+        ldflags = c.build_settings['OTHER_LDFLAGS'] ||= '$(inherited)'
+        ldflags << ' -weak_framework SwiftUICore' unless ldflags.include?('SwiftUICore')
+      end
     end
 
-    add_file_to_target(installer.pods_project, apm_target, impl_path)
-    add_file_to_target(installer.pods_project, apm_target, header_path)
-
-    puts '● Injected stub AMALibraryMigration320.{h,m} into AppMetricaCore'
-    # ---------------------------------------------------------------
+    # --- Stub AMALibraryMigration320.h -------------
+    mig_dir = File.join(
+      installer.sandbox.root,
+      'AppMetricaCore','AppMetricaCore','Sources','Database','Migration'
+    )
+    FileUtils.mkdir_p(mig_dir)
+    hdr = File.join(mig_dir,'AMALibraryMigration320.h')
+    unless File.exist?(hdr)
+      File.write(hdr, <<~H)
+        #import <Foundation/Foundation.h>
+        @interface AMALibraryMigration320 : NSObject @end
+      H
+      puts '● Stub AMALibraryMigration320.h written'
+    end
   end
 end
-# ────────────────────────────────────────────────────────────────

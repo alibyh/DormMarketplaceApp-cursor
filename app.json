@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "DormMarketplaceApp",
+    "name": "Marsa",
     "slug": "DormMarketplaceApp",
     "version": "1.0.0",
     "jsEngine": "hermes",
@@ -21,7 +21,7 @@
       "infoPlist": {
         "NSUserTrackingUsageDescription": "This identifier will be used to deliver personalized ads to you."
       },
-      "deploymentTarget": "13.0"
+      "deploymentTarget": "15.1"
     },
     "android": {
       "adaptiveIcon": {
@@ -48,10 +48,10 @@
       ],
       "./plugins/withYandexAds"
     ],
-    "owner": "alibyh3",
+    "owner": "alibyh",
     "extra": {
       "eas": {
-        "projectId": "fe77daf6-f6e2-40c4-adc8-25f17aab961f"
+        "projectId": "96eaf707-3dfe-43e9-9366-422ca68f6132"
       }
     }
   }
