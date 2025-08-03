@@ -1,0 +1,6 @@
+# macOS system junk
+.DS_Store
+.Spotlight-V100
+.Trashes
+# Safari / system caches accidentally captured
+Library/

@@ -1,0 +1,58 @@
+{
+  "expo": {
+    "name": "DormMarketplaceApp",
+    "slug": "DormMarketplaceApp",
+    "version": "1.0.0",
+    "jsEngine": "hermes",
+    "orientation": "portrait",
+    "icon": "./assets/S.F.U.png",
+    "userInterfaceStyle": "light",
+    "newArchEnabled": false,
+    "scheme": "dormmarketplaceapp",
+    "splash": {
+      "image": "./assets/S.F.U.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#ffffff"
+    },
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.alibyh.DormMarketplaceApp",
+      "enableHermes": true,
+      "infoPlist": {
+        "NSUserTrackingUsageDescription": "This identifier will be used to deliver personalized ads to you."
+      },
+      "deploymentTarget": "13.0"
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#ffffff"
+      },
+      "package": "com.yourcompany.dormmarketplace",
+      "enableHermes": true,
+      "permissions": [
+        "android.permission.INTERNET",
+        "android.permission.ACCESS_NETWORK_STATE",
+        "android.permission.RECORD_AUDIO"
+      ]
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
+    },
+    "plugins": [
+      [
+        "expo-image-picker",
+        {
+          "photosPermission": "The app accesses your photos to let you share them with your friends."
+        }
+      ],
+      "./plugins/withYandexAds"
+    ],
+    "owner": "alibyh3",
+    "extra": {
+      "eas": {
+        "projectId": "fe77daf6-f6e2-40c4-adc8-25f17aab961f"
+      }
+    }
+  }
+}
