@@ -1,70 +1,64 @@
-# ios/Podfile  – stub header only, no Xcodeproj calls
-source 'https://cdn.cocoapods.org'
-
 require File.join(File.dirname(`node --print "require.resolve('expo/package.json')"`), "scripts/autolinking")
 require File.join(File.dirname(`node --print "require.resolve('react-native/package.json')"`), "scripts/react_native_pods")
+
 require 'json'
-props = JSON.parse(File.read(File.join(__dir__, 'Podfile.properties.json'))) rescue {}
+podfile_properties = JSON.parse(File.read(File.join(__dir__, 'Podfile.properties.json'))) rescue {}
 
-ENV['RCT_NEW_ARCH_ENABLED']            = '0' if props['newArchEnabled'] == 'false'
-ENV['EX_DEV_CLIENT_NETWORK_INSPECTOR'] = props['EX_DEV_CLIENT_NETWORK_INSPECTOR']
+ENV['RCT_NEW_ARCH_ENABLED'] = '0' if podfile_properties['newArchEnabled'] == 'false'
+ENV['EX_DEV_CLIENT_NETWORK_INSPECTOR'] = podfile_properties['EX_DEV_CLIENT_NETWORK_INSPECTOR']
 
-platform :ios, props['ios.deploymentTarget'] || '15.1'
-install! 'cocoapods', :deterministic_uuids => false
+platform :ios, podfile_properties['ios.deploymentTarget'] || '15.1'
+install! 'cocoapods',
+  :deterministic_uuids => false
+
 prepare_react_native_project!
 
-target 'DormMarketplaceApp' do
+target 'Marsa' do
   use_expo_modules!
+  pod 'YandexMobileAds', '7.13.0'
+  if ENV['EXPO_USE_COMMUNITY_AUTOLINKING'] == '1'
+    config_command = ['node', '-e', "process.argv=['', '', 'config'];require('@react-native-community/cli').run()"];
+  else
+    config_command = [
+      'npx',
+      'expo-modules-autolinking',
+      'react-native-config',
+      '--json',
+      '--platform',
+      'ios'
+    ]
+  end
 
-  pod 'YandexMobileAds', '7.13.0'        # pulls AppMetricaCore 5.11.2
+  config = use_native_modules!(config_command)
 
-  # ───── Expo autolinking ─────
-  cmd = if ENV['EXPO_USE_COMMUNITY_AUTOLINKING'] == '1'
-          ['node','-e',"process.argv=['','','config'];require('@react-native-community/cli').run()"]
-        else
-          ['npx','expo-modules-autolinking','react-native-config','--json','--platform','ios']
-        end
-  cfg = use_native_modules!(cmd)
+  use_frameworks! :linkage => podfile_properties['ios.useFrameworks'].to_sym if podfile_properties['ios.useFrameworks']
+  use_frameworks! :linkage => ENV['USE_FRAMEWORKS'].to_sym if ENV['USE_FRAMEWORKS']
 
-  # static pods (Hermes links)
   use_react_native!(
-    :path        => cfg[:reactNativePath],
-    :hermes_enabled => (props['expo.jsEngine'].nil? || props['expo.jsEngine']=='hermes'),
-    :app_path    => "#{Pod::Config.instance.installation_root}/..",
+    :path => config[:reactNativePath],
+    :hermes_enabled => podfile_properties['expo.jsEngine'] == true || podfile_properties['expo.jsEngine'] == 'hermes',
+    # An absolute path to your application root.
+    :app_path => "#{Pod::Config.instance.installation_root}/..",
+    :privacy_file_aggregation_enabled => podfile_properties['apple.privacyManifestAggregationEnabled'] != 'false',
   )
 
   post_install do |installer|
-    react_native_post_install(installer, cfg[:reactNativePath])
-
-    # Disable codesign on resource bundles (Expo template)
-    installer.target_installation_results.pod_target_installation_results
-      .each_value do |res|
-      res.resource_bundle_targets.each do |b|
-        b.build_configurations.each { |c| c.build_settings['CODE_SIGNING_ALLOWED']='NO' }
-      end
-    end
-
-    # Weak-link private framework SwiftUICore (Xcode 16)
-    installer.pods_project.targets.each do |t|
-      t.build_configurations.each do |c|
-        ldflags = c.build_settings['OTHER_LDFLAGS'] ||= '$(inherited)'
-        ldflags << ' -weak_framework SwiftUICore' unless ldflags.include?('SwiftUICore')
-      end
-    end
-
-    # --- Stub AMALibraryMigration320.h -------------
-    mig_dir = File.join(
-      installer.sandbox.root,
-      'AppMetricaCore','AppMetricaCore','Sources','Database','Migration'
+    react_native_post_install(
+      installer,
+      config[:reactNativePath],
+      :mac_catalyst_enabled => false,
+      :ccache_enabled => podfile_properties['apple.ccacheEnabled'] == 'true',
     )
-    FileUtils.mkdir_p(mig_dir)
-    hdr = File.join(mig_dir,'AMALibraryMigration320.h')
-    unless File.exist?(hdr)
-      File.write(hdr, <<~H)
-        #import <Foundation/Foundation.h>
-        @interface AMALibraryMigration320 : NSObject @end
-      H
-      puts '● Stub AMALibraryMigration320.h written'
+
+    # This is necessary for Xcode 14, because it signs resource bundles by default
+    # when building for devices.
+    installer.target_installation_results.pod_target_installation_results
+      .each do |pod_name, target_installation_result|
+      target_installation_result.resource_bundle_targets.each do |resource_bundle_target|
+        resource_bundle_target.build_configurations.each do |config|
+          config.build_settings['CODE_SIGNING_ALLOWED'] = 'NO'
+        end
+      end
     end
   end
 end

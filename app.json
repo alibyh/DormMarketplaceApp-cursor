@@ -3,7 +3,7 @@
     "name": "Marsa",
     "slug": "DormMarketplaceApp",
     "version": "1.0.0",
-    "jsEngine": "hermes",
+    "jsEngine": "hermes", 
     "orientation": "portrait",
     "icon": "./assets/S.F.U.png",
     "userInterfaceStyle": "light",
@@ -45,8 +45,7 @@
         {
           "photosPermission": "The app accesses your photos to let you share them with your friends."
         }
-      ],
-      "./plugins/withYandexAds"
+      ]
     ],
     "owner": "alibyh",
     "extra": {
