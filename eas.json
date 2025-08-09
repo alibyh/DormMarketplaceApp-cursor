@@ -4,12 +4,13 @@
     "preview": {
       "distribution": "internal",
       "ios": {
-        "image": "macos-sonoma-14.5-xcode-15.4"   
+        "resourceClass": "m1-medium",
+        "image": "macos-sequoia-15.4-xcode-16.3"
       }
     },
     "production": {
       "ios": {
-        "image": "macos-sonoma-14.5-xcode-15.4"   
+        "image": "macos-sequoia-15.4-xcode-16.3"
       }
     },
     "development-simulator": {
@@ -17,9 +18,9 @@
       "distribution": "internal",
       "ios": {
         "simulator": true,
+        "resourceClass": "m1-medium",
         "buildConfiguration": "Debug",
-        "cocoapods": "1.12.1",
-        "image": "macos-sonoma-14.5-xcode-15.4"   
+        "image": "macos-sequoia-15.4-xcode-16.3"
       },
       "env": { "EAS_BUILD_SIMULATOR": "true" }
     }
