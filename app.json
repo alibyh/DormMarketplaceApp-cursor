@@ -3,7 +3,7 @@
     "name": "Marsa",
     "slug": "DormMarketplaceApp",
     "version": "1.0.0",
-    "jsEngine": "hermes", 
+    "jsEngine": "jsc", 
     "orientation": "portrait",
     "icon": "./assets/S.F.U.png",
     "userInterfaceStyle": "light",
@@ -17,7 +17,6 @@
     "ios": {
       "supportsTablet": true,
       "bundleIdentifier": "com.alibyh.DormMarketplaceApp",
-      "enableHermes": true,
       "infoPlist": {
         "NSUserTrackingUsageDescription": "This identifier will be used to deliver personalized ads to you."
       },
@@ -29,7 +28,6 @@
         "backgroundColor": "#ffffff"
       },
       "package": "com.yourcompany.dormmarketplace",
-      "enableHermes": true,
       "permissions": [
         "android.permission.INTERNET",
         "android.permission.ACCESS_NETWORK_STATE",

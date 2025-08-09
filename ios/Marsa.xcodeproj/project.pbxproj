@@ -8,25 +8,25 @@
 
 /* Begin PBXBuildFile section */
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
-		3124013878B1835790B8D389 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = DF22558F0706ED8169BEC920 /* PrivacyInfo.xcprivacy */; };
 		3E461D99554A48A4959DE609 /* SplashScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AA286B85B6C04FC6940260E9 /* SplashScreen.storyboard */; };
-		812DEFD10DB1130FB2FCFF49 /* libPods-Marsa.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 11A6730E8A1D8CE450041683 /* libPods-Marsa.a */; };
+		886E236CE98FD95A6092C641 /* libPods-Marsa.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E03971030D270DD8750B9DCE /* libPods-Marsa.a */; };
+		9079D1AB5B31DCA2B9E6F16D /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 31BBE44602B3EB9DD9C43918 /* PrivacyInfo.xcprivacy */; };
+		B6D1FB987AFEA7B85AAE50D6 /* ExpoModulesProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA208678C1D5ECF20874887 /* ExpoModulesProvider.swift */; };
 		BB2F792D24A3F905000567C9 /* Expo.plist in Resources */ = {isa = PBXBuildFile; fileRef = BB2F792C24A3F905000567C9 /* Expo.plist */; };
-		D422A5D838749C7FE03960FD /* ExpoModulesProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A498574844CD7E7ADFC248E /* ExpoModulesProvider.swift */; };
 		F11748422D0307B40044C1D9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F11748412D0307B40044C1D9 /* AppDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		11A6730E8A1D8CE450041683 /* libPods-Marsa.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Marsa.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07F961A680F5B00A75B9A /* Marsa.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Marsa.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = Marsa/Images.xcassets; sourceTree = "<group>"; };
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = Marsa/Info.plist; sourceTree = "<group>"; };
-		8A498574844CD7E7ADFC248E /* ExpoModulesProvider.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ExpoModulesProvider.swift; path = "Pods/Target Support Files/Pods-Marsa/ExpoModulesProvider.swift"; sourceTree = "<group>"; };
-		9C7EA28D2BF4833E634A65AB /* Pods-Marsa.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Marsa.debug.xcconfig"; path = "Target Support Files/Pods-Marsa/Pods-Marsa.debug.xcconfig"; sourceTree = "<group>"; };
-		9DA224FFA9E92D7FF7A7ED5F /* Pods-Marsa.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Marsa.release.xcconfig"; path = "Target Support Files/Pods-Marsa/Pods-Marsa.release.xcconfig"; sourceTree = "<group>"; };
+		31BBE44602B3EB9DD9C43918 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; includeInIndex = 1; name = PrivacyInfo.xcprivacy; path = Marsa/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
+		871DF6419FDB8D1035B80FFF /* Pods-Marsa.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Marsa.release.xcconfig"; path = "Target Support Files/Pods-Marsa/Pods-Marsa.release.xcconfig"; sourceTree = "<group>"; };
 		AA286B85B6C04FC6940260E9 /* SplashScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = SplashScreen.storyboard; path = Marsa/SplashScreen.storyboard; sourceTree = "<group>"; };
 		BB2F792C24A3F905000567C9 /* Expo.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Expo.plist; sourceTree = "<group>"; };
-		DF22558F0706ED8169BEC920 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; includeInIndex = 1; name = PrivacyInfo.xcprivacy; path = Marsa/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
+		D25C98BC9C3C460D960C777E /* Pods-Marsa.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Marsa.debug.xcconfig"; path = "Target Support Files/Pods-Marsa/Pods-Marsa.debug.xcconfig"; sourceTree = "<group>"; };
+		DDA208678C1D5ECF20874887 /* ExpoModulesProvider.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ExpoModulesProvider.swift; path = "Pods/Target Support Files/Pods-Marsa/ExpoModulesProvider.swift"; sourceTree = "<group>"; };
+		E03971030D270DD8750B9DCE /* libPods-Marsa.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Marsa.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		F11748412D0307B40044C1D9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = Marsa/AppDelegate.swift; sourceTree = "<group>"; };
 		F11748442D0722820044C1D9 /* Marsa-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "Marsa-Bridging-Header.h"; path = "Marsa/Marsa-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -37,7 +37,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				812DEFD10DB1130FB2FCFF49 /* libPods-Marsa.a in Frameworks */,
+				886E236CE98FD95A6092C641 /* libPods-Marsa.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -53,7 +53,7 @@
 				13B07FB51A68108700A75B9A /* Images.xcassets */,
 				13B07FB61A68108700A75B9A /* Info.plist */,
 				AA286B85B6C04FC6940260E9 /* SplashScreen.storyboard */,
-				DF22558F0706ED8169BEC920 /* PrivacyInfo.xcprivacy */,
+				31BBE44602B3EB9DD9C43918 /* PrivacyInfo.xcprivacy */,
 			);
 			name = Marsa;
 			sourceTree = "<group>";
@@ -62,27 +62,25 @@
 			isa = PBXGroup;
 			children = (
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
-				11A6730E8A1D8CE450041683 /* libPods-Marsa.a */,
+				E03971030D270DD8750B9DCE /* libPods-Marsa.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		3E52A9F6BF2EA29A4041434C /* ExpoModulesProviders */ = {
+		4D57FC48338CEEE2FD63095A /* Marsa */ = {
 			isa = PBXGroup;
 			children = (
-				8C7ED2C2D0776BD87E105A2C /* Marsa */,
+				DDA208678C1D5ECF20874887 /* ExpoModulesProvider.swift */,
 			);
-			name = ExpoModulesProviders;
+			name = Marsa;
 			sourceTree = "<group>";
 		};
-		70C9DF004C2FA9DE9CA66D93 /* Pods */ = {
+		76B7126CD0AA1036DC828A6C /* ExpoModulesProviders */ = {
 			isa = PBXGroup;
 			children = (
-				9C7EA28D2BF4833E634A65AB /* Pods-Marsa.debug.xcconfig */,
-				9DA224FFA9E92D7FF7A7ED5F /* Pods-Marsa.release.xcconfig */,
+				4D57FC48338CEEE2FD63095A /* Marsa */,
 			);
-			name = Pods;
-			path = Pods;
+			name = ExpoModulesProviders;
 			sourceTree = "<group>";
 		};
 		832341AE1AAA6A7D00B99B32 /* Libraries */ = {
@@ -99,8 +97,8 @@
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
-				70C9DF004C2FA9DE9CA66D93 /* Pods */,
-				3E52A9F6BF2EA29A4041434C /* ExpoModulesProviders */,
+				E46BB2F72CE5B361B9DF0E1B /* Pods */,
+				76B7126CD0AA1036DC828A6C /* ExpoModulesProviders */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -115,14 +113,6 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		8C7ED2C2D0776BD87E105A2C /* Marsa */ = {
-			isa = PBXGroup;
-			children = (
-				8A498574844CD7E7ADFC248E /* ExpoModulesProvider.swift */,
-			);
-			name = Marsa;
-			sourceTree = "<group>";
-		};
 		BB2F792B24A3F905000567C9 /* Supporting */ = {
 			isa = PBXGroup;
 			children = (
@@ -130,6 +120,16 @@
 			);
 			name = Supporting;
 			path = Marsa/Supporting;
+			sourceTree = "<group>";
+		};
+		E46BB2F72CE5B361B9DF0E1B /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				D25C98BC9C3C460D960C777E /* Pods-Marsa.debug.xcconfig */,
+				871DF6419FDB8D1035B80FFF /* Pods-Marsa.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -140,13 +140,12 @@
 			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "Marsa" */;
 			buildPhases = (
 				08A4A3CD28434E44B6B9DE2E /* [CP] Check Pods Manifest.lock */,
-				BA7B17AD53F0070F3D8B5350 /* [Expo] Configure project */,
+				B1561B475D9B6220AF61EB8A /* [Expo] Configure project */,
 				13B07F871A680F5B00A75B9A /* Sources */,
 				13B07F8C1A680F5B00A75B9A /* Frameworks */,
 				13B07F8E1A680F5B00A75B9A /* Resources */,
 				00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */,
 				800E24972A6A228C8D4807E9 /* [CP] Copy Pods Resources */,
-				B58F882F8CBEFC5C3DABF40A /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -196,7 +195,7 @@
 				BB2F792D24A3F905000567C9 /* Expo.plist in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				3E461D99554A48A4959DE609 /* SplashScreen.storyboard in Resources */,
-				3124013878B1835790B8D389 /* PrivacyInfo.xcprivacy in Resources */,
+				9079D1AB5B31DCA2B9E6F16D /* PrivacyInfo.xcprivacy in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -334,25 +333,7 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Marsa/Pods-Marsa-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		B58F882F8CBEFC5C3DABF40A /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Marsa/Pods-Marsa-frameworks.sh",
-				"${PODS_XCFRAMEWORKS_BUILD_DIR}/hermes-engine/Pre-built/hermes.framework/hermes",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/hermes.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Marsa/Pods-Marsa-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		BA7B17AD53F0070F3D8B5350 /* [Expo] Configure project */ = {
+		B1561B475D9B6220AF61EB8A /* [Expo] Configure project */ = {
 			isa = PBXShellScriptBuildPhase;
 			alwaysOutOfDate = 1;
 			buildActionMask = 2147483647;
@@ -379,7 +360,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F11748422D0307B40044C1D9 /* AppDelegate.swift in Sources */,
-				D422A5D838749C7FE03960FD /* ExpoModulesProvider.swift in Sources */,
+				B6D1FB987AFEA7B85AAE50D6 /* ExpoModulesProvider.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -388,7 +369,7 @@
 /* Begin XCBuildConfiguration section */
 		13B07F941A680F5B00A75B9A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 9C7EA28D2BF4833E634A65AB /* Pods-Marsa.debug.xcconfig */;
+			baseConfigurationReference = D25C98BC9C3C460D960C777E /* Pods-Marsa.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -424,7 +405,7 @@
 		};
 		13B07F951A680F5B00A75B9A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 9DA224FFA9E92D7FF7A7ED5F /* Pods-Marsa.release.xcconfig */;
+			baseConfigurationReference = 871DF6419FDB8D1035B80FFF /* Pods-Marsa.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -514,7 +495,7 @@
 				REACT_NATIVE_PATH = "${PODS_ROOT}/../../node_modules/react-native";
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) DEBUG";
-				USE_HERMES = true;
+				USE_HERMES = false;
 			};
 			name = Debug;
 		};
@@ -571,7 +552,7 @@
 				);
 				REACT_NATIVE_PATH = "${PODS_ROOT}/../../node_modules/react-native";
 				SDKROOT = iphoneos;
-				USE_HERMES = true;
+				USE_HERMES = false;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
