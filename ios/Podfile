@@ -24,6 +24,17 @@ target 'Marsa' do
   else
     config_command = ['npx','expo-modules-autolinking','react-native-config','--json','--platform','ios']
   end
+  pre_install do |installer|
+  # EAS fix: avoid "Singular build setting DEFINES_MODULE has different values"
+  Pod::UI.puts "Normalizing DEFINES_MODULE for all pods (EAS fix)"
+  installer.pod_targets.each do |pod_target|
+    # Make sure every xcconfig agrees on DEFINES_MODULE
+    pod_target.xcconfigs.each do |_config_name, xcconfig|
+      xcconfig.attributes['DEFINES_MODULE'] = 'YES'
+    end
+  end
+end
+
 
   config = use_native_modules!(config_command)
 
