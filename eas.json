@@ -3,6 +3,7 @@
   "build": {
     "preview": {
       "distribution": "internal",
+      "developmentClient": false,
       "ios": {
         "resourceClass": "m1-medium",
         "image": "macos-sequoia-15.4-xcode-16.3",

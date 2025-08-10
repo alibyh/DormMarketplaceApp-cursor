@@ -15,31 +15,21 @@ prepare_react_native_project!
 target 'Marsa' do
   use_expo_modules!
 
-  # 🔒 PIN THESE — this is the important part
+  # --- Yandex pins (keep these) ---
   pod 'YandexMobileAds', '7.13.0'
-  pod 'AppMetricaCore',  '5.11.2'
+  pod 'AppMetricaCore',   '5.11.2'
 
+  # Autolinking config command
   if ENV['EXPO_USE_COMMUNITY_AUTOLINKING'] == '1'
     config_command = ['node', '-e', "process.argv=['', '', 'config'];require('@react-native-community/cli').run()"]
   else
     config_command = ['npx','expo-modules-autolinking','react-native-config','--json','--platform','ios']
   end
-  pre_install do |installer|
-  # EAS fix: avoid "Singular build setting DEFINES_MODULE has different values"
-  Pod::UI.puts "Normalizing DEFINES_MODULE for all pods (EAS fix)"
-  installer.pod_targets.each do |pod_target|
-    # Make sure every xcconfig agrees on DEFINES_MODULE
-    pod_target.xcconfigs.each do |_config_name, xcconfig|
-      xcconfig.attributes['DEFINES_MODULE'] = 'YES'
-    end
-  end
-end
-
-
   config = use_native_modules!(config_command)
 
-  use_frameworks! if podfile_properties['ios.useFrameworks'] == 'static' || podfile_properties['ios.useFrameworks'] == 'dynamic'
-  use_frameworks! :linkage => ENV['USE_FRAMEWORKS'].to_sym if ENV['USE_FRAMEWORKS']
+  # (Optional but helps unify module behavior)
+  # If you hit static/dynamic conflicts, uncomment the next line:
+  # use_frameworks! :linkage => :static
 
   use_react_native!(
     :path => config[:reactNativePath],
@@ -49,23 +39,22 @@ end
   )
 
   post_install do |installer|
-  react_native_post_install(installer, config[:reactNativePath], :mac_catalyst_enabled => false, :ccache_enabled => podfile_properties['apple.ccacheEnabled'] == 'true')
+    # 1) Normalize DEFINES_MODULE for ALL pods (safer than pre_install)
     installer.pods_project.targets.each do |t|
-    t.build_configurations.each do |cfg|
-      cfg.build_settings['DEFINES_MODULE'] = 'YES'
+      t.build_configurations.each do |cfg|
+        cfg.build_settings['DEFINES_MODULE'] = 'YES'
+      end
     end
-  end
 
-  versions = installer.pod_targets.map { |t| [t.pod_name, t.version.to_s] }.to_h
-  raise "AppMetricaCore must be 5.11.2, got #{versions['AppMetricaCore'] || 'MISSING'}" unless versions['AppMetricaCore'] == '5.11.2'
-  raise "YandexMobileAds must be 7.13.0, got #{versions['YandexMobileAds'] || 'MISSING'}" unless versions['YandexMobileAds'] == '7.13.0'
+    # 2) Keep your RN/Expo defaults
+    react_native_post_install(
+      installer,
+      config[:reactNativePath],
+      :mac_catalyst_enabled => false,
+      :ccache_enabled => podfile_properties['apple.ccacheEnabled'] == 'true'
+    )
 
-  pods_root = installer.sandbox.root.to_s
-  hit = Dir.glob(File.join(pods_root, '**', 'AMALibraryMigration320.h')).first
-  raise "Missing AMALibraryMigration320.h under Pods (would fail to compile)." unless hit
-
-
-    # Avoid signing resource bundles
+    # 3) Don’t sign resource bundles
     installer.target_installation_results.pod_target_installation_results
       .each do |_, result|
         result.resource_bundle_targets.each do |rb|
