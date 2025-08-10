@@ -19,7 +19,7 @@
       "infoPlist": {
         "NSUserTrackingUsageDescription": "This identifier will be used to deliver personalized ads to you."
       },
-      "deploymentTarget": "15.1"
+      "deploymentTarget": "16"
     },
     "android": {
       "adaptiveIcon": {
