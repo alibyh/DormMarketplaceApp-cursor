@@ -1857,7 +1857,6 @@ PODS:
   - Yoga (0.0.0)
 
 DEPENDENCIES:
-  - AppMetricaCore (= 5.11.2)
   - boost (from `../node_modules/react-native/third-party-podspecs/boost.podspec`)
   - DoubleConversion (from `../node_modules/react-native/third-party-podspecs/DoubleConversion.podspec`)
   - EXApplication (from `../node_modules/expo-application/ios`)
@@ -2313,6 +2312,6 @@ SPEC CHECKSUMS:
   YandexMobileAds: 00a62ca359bc6510bf5d3b54f3d4c58ab1039608
   Yoga: c758bfb934100bb4bf9cbaccb52557cee35e8bdf
 
-PODFILE CHECKSUM: 9cc3e79daddb2ff7935eb6a8890c978a9efafc60
+PODFILE CHECKSUM: c9d73e73ef78669ba2da24b1e319542e19361e12
 
 COCOAPODS: 1.16.2

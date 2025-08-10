@@ -17,7 +17,7 @@ target 'Marsa' do
 
   # --- Yandex pins (keep these) ---
   pod 'YandexMobileAds', '7.13.0'
-  pod 'AppMetricaCore',   '5.11.2'
+  # pod 'AppMetricaCore',   '5.11.2'
 
   # Autolinking config command
   if ENV['EXPO_USE_COMMUNITY_AUTOLINKING'] == '1'
