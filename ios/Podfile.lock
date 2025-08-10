@@ -1,75 +1,75 @@
 PODS:
-  - AppMetricaAdSupport (5.10.0):
-    - AppMetricaCore (= 5.10.0)
-    - AppMetricaCoreExtension (= 5.10.0)
-  - AppMetricaCore (5.10.0):
-    - AppMetricaCoreUtils (= 5.10.0)
-    - AppMetricaEncodingUtils (= 5.10.0)
-    - AppMetricaFMDB (= 5.10.0)
-    - AppMetricaHostState (= 5.10.0)
-    - AppMetricaIdentifiers (= 5.10.0)
-    - AppMetricaKeychain (= 5.10.0)
-    - AppMetricaLog (= 5.10.0)
-    - AppMetricaNetwork (= 5.10.0)
-    - AppMetricaPlatform (= 5.10.0)
-    - AppMetricaProtobuf (= 5.10.0)
-    - AppMetricaProtobufUtils (= 5.10.0)
-    - AppMetricaStorageUtils (= 5.10.0)
-  - AppMetricaCoreExtension (5.10.0):
-    - AppMetricaCore (= 5.10.0)
-    - AppMetricaStorageUtils (= 5.10.0)
-  - AppMetricaCoreUtils (5.10.0):
-    - AppMetricaLog (= 5.10.0)
-  - AppMetricaCrashes (5.10.0):
-    - AppMetricaCore (= 5.10.0)
-    - AppMetricaCoreExtension (= 5.10.0)
-    - AppMetricaCoreUtils (= 5.10.0)
-    - AppMetricaEncodingUtils (= 5.10.0)
-    - AppMetricaHostState (= 5.10.0)
-    - AppMetricaLog (= 5.10.0)
-    - AppMetricaPlatform (= 5.10.0)
-    - AppMetricaProtobufUtils (= 5.10.0)
-    - AppMetricaStorageUtils (= 5.10.0)
+  - AppMetricaAdSupport (5.11.2):
+    - AppMetricaCore (= 5.11.2)
+    - AppMetricaCoreExtension (= 5.11.2)
+  - AppMetricaCore (5.11.2):
+    - AppMetricaCoreUtils (= 5.11.2)
+    - AppMetricaEncodingUtils (= 5.11.2)
+    - AppMetricaFMDB (= 5.11.2)
+    - AppMetricaHostState (= 5.11.2)
+    - AppMetricaIdentifiers (= 5.11.2)
+    - AppMetricaKeychain (= 5.11.2)
+    - AppMetricaLog (= 5.11.2)
+    - AppMetricaNetwork (= 5.11.2)
+    - AppMetricaPlatform (= 5.11.2)
+    - AppMetricaProtobuf (= 5.11.2)
+    - AppMetricaProtobufUtils (= 5.11.2)
+    - AppMetricaStorageUtils (= 5.11.2)
+  - AppMetricaCoreExtension (5.11.2):
+    - AppMetricaCore (= 5.11.2)
+    - AppMetricaStorageUtils (= 5.11.2)
+  - AppMetricaCoreUtils (5.11.2):
+    - AppMetricaLog (= 5.11.2)
+  - AppMetricaCrashes (5.11.2):
+    - AppMetricaCore (= 5.11.2)
+    - AppMetricaCoreExtension (= 5.11.2)
+    - AppMetricaCoreUtils (= 5.11.2)
+    - AppMetricaEncodingUtils (= 5.11.2)
+    - AppMetricaHostState (= 5.11.2)
+    - AppMetricaLog (= 5.11.2)
+    - AppMetricaPlatform (= 5.11.2)
+    - AppMetricaProtobufUtils (= 5.11.2)
+    - AppMetricaStorageUtils (= 5.11.2)
     - KSCrash/Recording (< 2.1.0, >= 2.0.0)
-  - AppMetricaEncodingUtils (5.10.0):
-    - AppMetricaCoreUtils (= 5.10.0)
-    - AppMetricaLog (= 5.10.0)
-    - AppMetricaPlatform (= 5.10.0)
-  - AppMetricaFMDB (5.10.0)
-  - AppMetricaHostState (5.10.0):
-    - AppMetricaCoreUtils (= 5.10.0)
-    - AppMetricaLog (= 5.10.0)
-  - AppMetricaIdentifiers (5.10.0):
-    - AppMetricaKeychain (= 5.10.0)
-    - AppMetricaLogSwift (= 5.10.0)
-    - AppMetricaPlatform (= 5.10.0)
-    - AppMetricaStorageUtils (= 5.10.0)
-    - AppMetricaSynchronization (= 5.10.0)
-  - AppMetricaKeychain (5.10.0):
-    - AppMetricaCoreUtils (= 5.10.0)
-    - AppMetricaLog (= 5.10.0)
-    - AppMetricaStorageUtils (= 5.10.0)
-  - AppMetricaLibraryAdapter (5.10.0):
-    - AppMetricaCore (= 5.10.0)
-    - AppMetricaCoreExtension (= 5.10.0)
-  - AppMetricaLog (5.10.0)
-  - AppMetricaLogSwift (5.10.0):
-    - AppMetricaLog (= 5.10.0)
-  - AppMetricaNetwork (5.10.0):
-    - AppMetricaCoreUtils (= 5.10.0)
-    - AppMetricaLog (= 5.10.0)
-    - AppMetricaPlatform (= 5.10.0)
-  - AppMetricaPlatform (5.10.0):
-    - AppMetricaCoreUtils (= 5.10.0)
-    - AppMetricaLog (= 5.10.0)
-  - AppMetricaProtobuf (5.10.0)
-  - AppMetricaProtobufUtils (5.10.0):
-    - AppMetricaProtobuf (= 5.10.0)
-  - AppMetricaStorageUtils (5.10.0):
-    - AppMetricaCoreUtils (= 5.10.0)
-    - AppMetricaLog (= 5.10.0)
-  - AppMetricaSynchronization (5.10.0):
-    - AppMetricaLogSwift (= 5.10.0)
+  - AppMetricaEncodingUtils (5.11.2):
+    - AppMetricaCoreUtils (= 5.11.2)
+    - AppMetricaLog (= 5.11.2)
+    - AppMetricaPlatform (= 5.11.2)
+  - AppMetricaFMDB (5.11.2)
+  - AppMetricaHostState (5.11.2):
+    - AppMetricaCoreUtils (= 5.11.2)
+    - AppMetricaLog (= 5.11.2)
+  - AppMetricaIdentifiers (5.11.2):
+    - AppMetricaKeychain (= 5.11.2)
+    - AppMetricaLogSwift (= 5.11.2)
+    - AppMetricaPlatform (= 5.11.2)
+    - AppMetricaStorageUtils (= 5.11.2)
+    - AppMetricaSynchronization (= 5.11.2)
+  - AppMetricaKeychain (5.11.2):
+    - AppMetricaCoreUtils (= 5.11.2)
+    - AppMetricaLog (= 5.11.2)
+    - AppMetricaStorageUtils (= 5.11.2)
+  - AppMetricaLibraryAdapter (5.11.2):
+    - AppMetricaCore (= 5.11.2)
+    - AppMetricaCoreExtension (= 5.11.2)
+  - AppMetricaLog (5.11.2)
+  - AppMetricaLogSwift (5.11.2):
+    - AppMetricaLog (= 5.11.2)
+  - AppMetricaNetwork (5.11.2):
+    - AppMetricaCoreUtils (= 5.11.2)
+    - AppMetricaLog (= 5.11.2)
+    - AppMetricaPlatform (= 5.11.2)
+  - AppMetricaPlatform (5.11.2):
+    - AppMetricaCoreUtils (= 5.11.2)
+    - AppMetricaLog (= 5.11.2)
+  - AppMetricaProtobuf (5.11.2)
+  - AppMetricaProtobufUtils (5.11.2):
+    - AppMetricaProtobuf (= 5.11.2)
+  - AppMetricaStorageUtils (5.11.2):
+    - AppMetricaCoreUtils (= 5.11.2)
+    - AppMetricaLog (= 5.11.2)
+  - AppMetricaSynchronization (5.11.2):
+    - AppMetricaLogSwift (= 5.11.2)
   - boost (1.84.0)
   - DivKit (31.14.0):
     - DivKit_LayoutKit (= 31.14.0)
@@ -2089,7 +2089,7 @@ PODS:
   - Yoga (0.0.0)
 
 DEPENDENCIES:
-  - AppMetricaCore (= 5.10.0)
+  - AppMetricaCore (= 5.11.2)
   - boost (from `../node_modules/react-native/third-party-podspecs/boost.podspec`)
   - DoubleConversion (from `../node_modules/react-native/third-party-podspecs/DoubleConversion.podspec`)
   - EXApplication (from `../node_modules/expo-application/ios`)
@@ -2435,25 +2435,25 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native/ReactCommon/yoga"
 
 SPEC CHECKSUMS:
-  AppMetricaAdSupport: 67f05ff0b3b22bb43fe4b4205860024e38f4a45e
-  AppMetricaCore: e123a74141e9af2d9e4edb98429042e868c6a7f5
-  AppMetricaCoreExtension: 7c5d81435f6cadb7487780fb377eb214241a7fb3
-  AppMetricaCoreUtils: d847c6ea304e0246ffc6e7d0e559d6a1cbf633b3
-  AppMetricaCrashes: 89f120bf9cc2713a680ea6733d7d7ac1572e28f8
-  AppMetricaEncodingUtils: a0c44b85e864af0d9aa5d7ca4bb255f494e28cba
-  AppMetricaFMDB: 43424f0302398a4233a265e9aa5f5176a0d9f808
-  AppMetricaHostState: dcb06d1af7352d429afd3b08f1d557c687f1354a
-  AppMetricaIdentifiers: 8a6795f7a45285e3552e7746795f3f36dacea4b9
-  AppMetricaKeychain: 29f6f3b719f08fb41c29973cb04bb2962c234460
-  AppMetricaLibraryAdapter: a4d66fbc7d072cc20953064c3fece486edc9f37b
-  AppMetricaLog: caa4717bf9406bc58fd3a69b3f3675c37cfe215a
-  AppMetricaLogSwift: 2fab7a1cb95eca5cc7e6c56fbd87595f7224c9f3
-  AppMetricaNetwork: 6589215571aab0bd5d164d73962ebe99004ada4f
-  AppMetricaPlatform: 185adcfdf779e415e42773cb91ca094871750689
-  AppMetricaProtobuf: efadf09fa9d9f06982e34a5cfca7f389e40b302c
-  AppMetricaProtobufUtils: c7d796187f99d94a00045f954800187d805f7c9d
-  AppMetricaStorageUtils: e11e8ef9d2f245ca5bf64037738bf335999c7944
-  AppMetricaSynchronization: 248f3c11e8459c1e4bd09e03a09ee2cff7acfce7
+  AppMetricaAdSupport: 66c7a050698610774cc359f694ccb2f6a3bf83fb
+  AppMetricaCore: 36c64a0b520c0d1aaa84c4b8ba71a137887df982
+  AppMetricaCoreExtension: a1f28ee520a114300b8a5a768c23f24f6cc1ad8b
+  AppMetricaCoreUtils: 5511f449086ea69c83c682360b5294f64cbd130a
+  AppMetricaCrashes: ac09744bb1e2f9366405d7cee745a7b542c62ca8
+  AppMetricaEncodingUtils: 53142b5fdcf9e45948dafb20fcd01e92db50e16f
+  AppMetricaFMDB: 1666713b6f888706c6f21306f957d1bbaca7ce49
+  AppMetricaHostState: 224150a3dbfe4063ef4524f07a2c18473e14fb95
+  AppMetricaIdentifiers: c1d0886bfd766bae31afb34aa078bc1a516f8c02
+  AppMetricaKeychain: 47e338d80fdf04c966eb8de0cf1dc1475161a8a9
+  AppMetricaLibraryAdapter: d4580212f8599b668fc70b6fef1766d4637c16b4
+  AppMetricaLog: 5336672184c66b1a0eb8f3c3205897bf90ef9342
+  AppMetricaLogSwift: c64ae54bbff3f876875f126a9612915a75330d67
+  AppMetricaNetwork: cafea17ac96cc2ca1d13089c3f0996dd126e1da5
+  AppMetricaPlatform: 8c8defe67db8084f29cb477e28c09c8c0ede7e40
+  AppMetricaProtobuf: 0e9735bd77870f6eb6d30ef257e21141aad5c117
+  AppMetricaProtobufUtils: a7c741f060e987957d9afcdef951776b486a5ab3
+  AppMetricaStorageUtils: 884d6545aba72ab7f835ba369fd919b5162f40c4
+  AppMetricaSynchronization: eb488695c4ef154bb0f3c54b56c48f50f2364107
   boost: 7e761d76ca2ce687f7cc98e698152abd03a18f90
   DivKit: 6199401ae3cd647f34a151d7a13e904cf0b652dd
   DivKit_LayoutKit: 1f3c4f4f7623bdb72201e9f11423b6c827614261
@@ -2573,6 +2573,6 @@ SPEC CHECKSUMS:
   YandexMobileAds: 00a62ca359bc6510bf5d3b54f3d4c58ab1039608
   Yoga: c758bfb934100bb4bf9cbaccb52557cee35e8bdf
 
-PODFILE CHECKSUM: b04f863f016ee2d9ee736c6dd7a89f664bdd98ab
+PODFILE CHECKSUM: 62b054c4c65b0e8a3ce5c857ca57a4957f39715f
 
 COCOAPODS: 1.16.2
