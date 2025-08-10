@@ -39,13 +39,9 @@ target 'Marsa' do
 
   post_install do |installer|
   react_native_post_install(installer, config[:reactNativePath], :mac_catalyst_enabled => false, :ccache_enabled => podfile_properties['apple.ccacheEnabled'] == 'true')
-    # --- Fix EAS merge error: "Singular build setting DEFINES_MODULE has different values" ---
-  targets_to_fix = %w[expo-dev-menu Main ReactNativeCompatibles SafeAreaView Vendored]
-  installer.pods_project.targets.each do |t|
-    if targets_to_fix.include?(t.name)
-      t.build_configurations.each do |cfg|
-        cfg.build_settings['DEFINES_MODULE'] = 'YES'
-      end
+    installer.pods_project.targets.each do |t|
+    t.build_configurations.each do |cfg|
+      cfg.build_settings['DEFINES_MODULE'] = 'YES'
     end
   end
 
