@@ -7,7 +7,6 @@
     "orientation": "portrait",
     "icon": "./assets/S.F.U.png",
     "userInterfaceStyle": "light",
-    "newArchEnabled": false,
     "scheme": "dormmarketplaceapp",
     "splash": {
       "image": "./assets/S.F.U.png",

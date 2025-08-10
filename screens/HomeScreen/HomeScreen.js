@@ -684,7 +684,7 @@ const HomeScreen = ({ navigation, route }) => {
   // Add this function to show interstitial ads
   const showInterstitialAd = async () => {
     try {
-      await YandexAdsModule.loadInterstitial('R-M-16546684-1'); // Your interstitial ad unit ID
+      await YandexAdsModule.loadInterstitial('R-M-DEMO-320x50'); // Your interstitial ad unit ID
       await YandexAdsModule.showInterstitial();
     } catch (error) {
       console.error('Interstitial ad failed:', error);
@@ -761,6 +761,7 @@ const HomeScreen = ({ navigation, route }) => {
             {/* Banner Carousel */}
             {(banners.length > 0 || true) && (
               <FlatList
+                ref={bannerFlatListRef}
                 data={[{ id: 'yandex-banner' }, ...banners]}
                 keyExtractor={(item) => item.id.toString()}
                 renderItem={({ item }) =>
